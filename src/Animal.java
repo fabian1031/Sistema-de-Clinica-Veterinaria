@@ -21,6 +21,9 @@ public abstract class Animal {
 //    public void setNombre(String nombre) {this.nombre = nombre;}
 //    public void setPeso(double peso) {this.peso = peso;}
     //funciones
-    public abstract double consultarCosto();
+    public void imprmirFicha(){
+        System.out.println("nombre :" + nombre + "edad: " + edad + "dueno: " + dueno + "peso : " + peso);
+    }
 
+    public abstract double consultarCosto();
 }

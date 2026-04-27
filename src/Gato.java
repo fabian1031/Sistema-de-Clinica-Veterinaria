@@ -1,6 +1,7 @@
-public class Gato extends Animal implements Vacunable{
+public class Gato extends Animal implements Vacunable, Asegurable{
     private String colorOjos;
     private boolean esterilizado;
+    private int vacunasAplicadas;
 
     public Gato(String dueno, double edad, String nombre, double peso, String colorOjos, boolean esterilizado) {
         super(dueno, edad, nombre, peso);
@@ -18,16 +19,26 @@ public class Gato extends Animal implements Vacunable{
 
     @Override
     public double consultarCosto() {
-        return 0;
+        return 38000;
     }
 
     @Override
     public void registrarVacuna(String nombreVacuna) {
-
+        System.out.println("vacuna" + nombreVacuna + "registrada para " +nombre);
+        vacunasAplicadas ++;
+    }
+    @Override
+    public int getVacunasAplicadas() {
+        return vacunasAplicadas;
     }
 
     @Override
-    public int getVacunasAplicadas() {
-        return 0;
+    public double calcularPrimaSeguro() {
+        return esterilizado?120000:200000;
+    }
+
+    @Override
+    public String obtenerNumeroPoliza() {
+        return "pol_gato :" + nombre;
     }
 }
